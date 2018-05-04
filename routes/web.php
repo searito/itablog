@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::redirect('/', 'itablog');
+
+Auth::routes();
+
+/*Route::get('/home', 'HomeController@index')->name('home');*/
+Route::get('itablog', 'Web\PageController@blog')->name('itablog');
