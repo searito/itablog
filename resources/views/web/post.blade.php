@@ -3,29 +3,30 @@
 @section('content')
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
-            <h1>Lista De Artículos</h1>
+            <h1>{{ $post->name }}</h1>
 
-            @foreach ($posts as $post)
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        {{ $post->name }}
-                    </div>
-
-                    <div class="panel-body" style="margin-bottom:2%;">
-                        @if ($post->file)
-                            <img src="{{ $post->file }}" class="img-responsive">
-                        @endif
-
-                        {{ $post->excerpt }}
-
-                        <a href="#" class="pull-right">Leer Más</a>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    Categoría: <a href="#" class="bnt btn-info btn-sm">{{ $post->category->name }}</a>
                 </div>
-            @endforeach
 
-            <hr>
+                <div class="card-body">
+                    @if ($post->file)
+                        <img src="{{ $post->file }}" class="card-img-top">
+                    @endif
 
-            {{ $posts->render() }}
+                    <hr>
+
+                    {!! $post->body !!}
+
+                    <hr>
+
+                    Etiquetas
+                    @foreach ($post->tags as $tag)
+                        <a href="#" class="btn btn-sm btn-secondary">{{ $tag->name }}</a>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 @endsection

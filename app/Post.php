@@ -14,7 +14,7 @@ class Post extends Model
      * UN POST PERTENECE A UN USUARIO
      * **********************************/
     public function user(){
-        return $this->belongsTo(User::tag);
+        return $this->belongsTo(User::class);
     }
 
 
@@ -22,7 +22,7 @@ class Post extends Model
      * UN POST PERTENECE A UNA CATEGORIA
      * **********************************/
     public function category(){
-        return $this->belongsTo(Category::tag);
+        return $this->belongsTo(Category::class);
     }
 
 

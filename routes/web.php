@@ -20,3 +20,4 @@ Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 Route::get('itablog', 'Web\PageController@blog')->name('itablog');
+Route::get('itablog/{slug}', 'Web\PageController@post')->name('post');
