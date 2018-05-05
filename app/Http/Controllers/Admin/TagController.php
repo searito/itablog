@@ -46,7 +46,7 @@ class TagController extends Controller
     {
         $tag = Tag::create($request->all());
 
-        return redirect()->route('tag.edit', $tag->id)
+        return redirect()->route('tags.edit', $tag->id)
             ->with('info', 'Etiqueta Creada..!');
     }
 
@@ -86,7 +86,7 @@ class TagController extends Controller
         $tag = Tag::find($id);
         $tag->fill($request->all())->save();
 
-        return redirect()->route('tag.edit', $tag->id)
+        return redirect()->route('tags.edit', $tag->id)
             ->with('info', 'Etiqueta Modificada..!');
     }
 
