@@ -7,7 +7,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    Categoría: <a href="#" class="bnt btn-info btn-sm">{{ $post->category->name }}</a>
+                    Categoría: <a href="{{ route('category', $post->category->slug) }}" class="bnt btn-info btn-sm">
+                        {{ $post->category->name }}
+                    </a>
                 </div>
 
                 <div class="card-body">
@@ -23,7 +25,9 @@
 
                     Etiquetas
                     @foreach ($post->tags as $tag)
-                        <a href="#" class="btn btn-sm btn-secondary">{{ $tag->name }}</a>
+                        <a href="{{ route('tag', $tag->slug) }}" class="btn btn-sm btn-secondary">
+                            {{ $tag->name }}
+                        </a>
                     @endforeach
                 </div>
             </div>

@@ -19,5 +19,12 @@ Route::redirect('/', 'itablog');
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
+
+/**    RUTAS DEL FRONTEND       **/
 Route::get('itablog', 'Web\PageController@blog')->name('itablog');
-Route::get('itablog/{slug}', 'Web\PageController@post')->name('post');
+Route::get('entrada/{slug}', 'Web\PageController@post')->name('post');
+Route::get('categoria/{slug}', 'Web\PageController@category')->name('category');
+Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
+
+
+/**     RUTAS BACKEND        **/
