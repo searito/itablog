@@ -46,9 +46,12 @@
                                                 </a>
                                             </td>
                                             <td width="10px">
-                                                <a href="" class="btn btn-sm btn-danger">
-                                                    Eliminar
-                                                </a>
+                                                {!! Form::open(['route' => ['tags.destroy', $t->id], 'method' => 'DELETE']) !!}
+                                                    <button class="btn btn-sm btn-danger">
+                                                        Eliminar
+                                                    </button>
+                                                {!! Form::close() !!}
+                                                 
                                             </td>
                                         </tr>
                                     @endforeach
