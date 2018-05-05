@@ -58,12 +58,20 @@
 </div>
 
 @section('scripts')
+
+    <script src="{{ asset('vendor/CKEditor/ckeditor.js') }}"></script>
     <script>
         $(document).ready(function(){
             $("#name").keyup(function(){
                 var cadena = $(this).val();
                 string_to_slug(cadena);
             });
+
+            /*
+                CKEDITOR.config.height = 400;
+                CKEDITOR.config.width = 400;
+            */
+            CKEDITOR.replace('body');
         });
 
         function string_to_slug (str) {
