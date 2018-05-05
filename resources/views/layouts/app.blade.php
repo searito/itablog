@@ -37,7 +37,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li>
+                            <a href="{{ route('itablog') }}" class="nav-link">Blog</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -47,6 +49,10 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                            <li><a href="{{ route('tags.index') }}" class="nav-link">Etiquetas</a></li>
+                            <li><a href="{{ route('categories.index') }}" class="nav-link">Categorías</a></li>
+                            <li><a href="{{ route('posts.index') }}" class="nav-link">Entradas</a></li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

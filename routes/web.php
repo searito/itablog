@@ -28,3 +28,6 @@ Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
 
 
 /**     RUTAS BACKEND        **/
+Route::resource('tags', 'Admin\TagController');
+Route::resource('categories', 'Admin\CategoryController');
+Route::resource('posts', 'Admin\PostController');
