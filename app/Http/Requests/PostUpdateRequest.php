@@ -30,7 +30,7 @@ class PostUpdateRequest extends FormRequest
             'category_id'   => 'required|integer',
             'tags'          => 'required|array',
             'body'          => 'required',
-            'status'        => 'required|in:DRAFT, PUBLISHED'
+            'status'        => 'required|in:DRAFT,PUBLISHED',
         ];
 
         if ($this->get('file'))

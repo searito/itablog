@@ -11,6 +11,8 @@ use App\Tag;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 
+use Illuminate\Support\Facades\Storage;
+
 class PostController extends Controller
 {
     public function __construct()
@@ -55,6 +57,20 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
+        /*************************************************
+         *              PARA SUBIR IMAGEN
+         * **********************************************/
+        if($request->file('file')){
+            $path = Storage::disk('public')->put('file', $request->file('file'));
+            $post->fill(['file' => asset($path)])->save();
+        }
+
+
+        /*************************************************** 
+        *    ALMACENAR LAS TAGS Y SINCRONIZAR LA RELACION
+         **************************************************/
+        $post->tags()->sync($request->get('tags'));
+
         return redirect()->route('posts.edit', $post->id)
             ->with('info', 'Categoria Creada..!');
     }
@@ -97,6 +113,20 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->fill($request->all())->save();
+
+        /*************************************************
+         *              PARA SUBIR IMAGEN
+         * **********************************************/
+        if ($request->file('file')) {
+            $path = Storage::disk('public')->put('file', $request->file('file'));
+            $post->fill(['file' => asset($path)])->save();
+        }
+
+        /*************************************************** 
+         *    ALMACENAR LAS TAGS Y SINCRONIZAR LA RELACION
+         **************************************************/
+        $post->tags()->sync($request->get('tags'));
+
 
         return redirect()->route('posts.edit', $post->id)
             ->with('info', 'Entrada Modificada..!');
